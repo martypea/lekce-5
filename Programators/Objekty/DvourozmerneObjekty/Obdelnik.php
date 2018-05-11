@@ -1,5 +1,5 @@
 <?php
-class Obdelnik
+class Obdelnik implements DvourozmernyObrazec
 {
 	private $stranaA;
 
@@ -25,4 +25,8 @@ class Obdelnik
 	{
 		return $this->stranaA * $this->stranaB;
 	}
+  public function ziskejObvod()
+  {
+    return 2*($this->stranaA+$this->stranaB);
+  }
 }

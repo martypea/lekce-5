@@ -1,5 +1,15 @@
 <?php
+require 'Functions.php';
+require 'Programators/Objekty/DvourozmerneObjekty/DvourozmernyObrazec.php';
 require 'Programators/Objekty/DvourozmerneObjekty/Obdelnik.php';
+require 'Programators/Objekty/DvourozmerneObjekty/Kruh.php';
+require 'Programators/Objekty/DvourozmerneObjekty/Ctverec.php';
+require 'Programators/Objekty/DvourozmerneObjekty/Mnohouhelnik.php';
+require 'Programators/Objekty/DvourozmerneObjekty/Sedmiuhelnik.php';
+require 'Programators/Objekty/TrojrozmerneObjekty/TrojrozmernyObrazec.php';
+require 'Programators/Objekty/TrojrozmerneObjekty/Kvadr.php';
+require 'Programators/Objekty/TrojrozmerneObjekty/Krychle.php';
+require 'Programators/User.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -54,8 +64,14 @@ require 'Programators/Objekty/DvourozmerneObjekty/Obdelnik.php';
       </div>
 
       <?php
-        $obdelnik = new Obdelnik(2, 3);
-
+        $obdelnik = new Obdelnik(5, 7);
+        $kruh = new Kruh(5);
+        $ctverec = new Ctverec(6);
+      $mnohouhelnik = new Mnohouhelnik(1,5);
+     $sedmiuhelnik = new Sedmiuhelnik(1);
+      $kvadr = new Kvadr(2,5,9);
+      $krychle = new Krychle(5);
+    $userMartin = new User("Martin","Pavlas");
       ?>
 
       <div class="container">
@@ -71,9 +87,140 @@ require 'Programators/Objekty/DvourozmerneObjekty/Obdelnik.php';
           </tr>
           <tr>
             <th>Obsah</th>
-            <td><?=$obdelnik->ziskejObsah()?></td>
+            <td><?=vypisObsah($obdelnik)?></td>
+          </tr>
+          <tr>
+            <th>Obvod</th>
+            <td><?=vypisObvod($obdelnik)?></td>
           </tr>
         </table>
+        
+        <h1>Kruh</h1>
+        <table class="table">
+          <tr>
+            <th>Poloměr</th>
+            <td><?=$kruh->getRadius()?></td>
+          </tr>
+          <tr>
+            <th>Obsah</th>
+            <td><?=vypisObsah($kruh)?></td>
+          </tr>
+          <tr>
+            <th>Obvod</th>
+            <td><?=vypisObvod($kruh)?></td>
+          </tr>
+        </table>
+        
+        <h1>Čtverec</h1>
+        <table class="table">
+          <tr>
+            <th>Strana A</th>
+            <td><?=$ctverec->ziskejStranuA()?></td>
+          </tr>
+          <tr>
+            <th>Strana B</th>
+            <td><?=$ctverec->ziskejStranuB()?></td>
+          </tr>
+          <tr>
+            <th>Obsah</th>
+            <td><?=vypisObsah($ctverec)?></td>
+          </tr>
+          <tr>
+            <th>Obvod</th>
+            <td><?=vypisObvod($ctverec)?></td>
+          </tr>
+        </table>
+        
+        <h1>Mnohoúhelník</h1>
+        <table class="table">
+          <tr>
+            <th>Délka strany</th>
+            <td><?=$mnohouhelnik->ziskejDelkuStrany()?></td>
+          </tr>
+          <tr>
+            <th>Pocet uhlu</th>
+            <td><?=$mnohouhelnik->ziskejPocetUhlu()?></td>
+          </tr>
+          <tr>
+            <th>Obsah</th>
+            <td><?=vypisObsah($mnohouhelnik)?></td>
+          </tr>
+          <tr>
+            <th>Obvod</th>
+            <td><?=vypisObvod($mnohouhelnik)?></td>
+          </tr>
+        </table>
+        
+        <h1>Sedmiúhelník</h1>
+        <table class="table">
+          <tr>
+            <th>Délka strany</th>
+            <td><?=$sedmiuhelnik->ziskejDelkuStrany()?></td>
+          </tr>
+          <tr>
+            <th>Pocet uhlu</th>
+            <td><?=$sedmiuhelnik->ziskejPocetUhlu()?></td>
+          </tr>
+          <tr>
+            <th>Obsah</th>
+            <td><?=vypisObsah($sedmiuhelnik)?></td>
+          </tr>
+          <tr>
+            <th>Obvod</th>
+            <td><?=vypisObvod($sedmiuhelnik)?></td>
+          </tr>
+        </table>
+        
+        <h1>Kvadr</h1>
+        <table class="table">
+          <tr>
+            <th>Strana A</th>
+            <td><?=$kvadr->ziskejStranuA()?></td>
+          </tr>
+          <tr>
+            <th>Strana B</th>
+            <td><?=$kvadr->ziskejStranuB()?></td>
+          </tr>
+          <tr>
+            <th>Strana C</th>
+            <td><?=$kvadr->ziskejStranuC()?></td>
+          </tr>
+          <tr>
+            <th>Objem</th>
+            <td><?=vypisObjem($kvadr)?></td>
+          </tr>
+          <tr>
+            <th>Povrch</th>
+            <td><?=vypisPovrch($kvadr)?></td>
+          </tr>
+        </table>
+        
+         <h1>Krychle</h1>
+        <table class="table">
+          <tr>
+            <th>Strana A</th>
+            <td><?=$krychle->ziskejStranuA()?></td>
+          </tr>
+          <tr>
+            <th>Strana B</th>
+            <td><?=$krychle->ziskejStranuB()?></td>
+          </tr>
+          <tr>
+            <th>Strana C</th>
+            <td><?=$krychle->ziskejStranuC()?></td>
+          </tr>
+          <tr>
+            <th>Objem</th>
+            <td><?=vypisObjem($krychle)?></td>
+          </tr>
+          <tr>
+            <th>Povrch</th>
+            <td><?=vypisPovrch($krychle)?></td>
+          </tr>
+        </table>
+        
+        <h1><?=info($userMartin)?></h1>
+        <?php var_dump($userMartin);?>
       </div>
 
     </main>
